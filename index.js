@@ -30,15 +30,30 @@ if (humanChoice === computerChoice){
 else if ((humanChoice === "rock" && computerChoice ==="scissors") ||
          (humanChoice === "paper" && computerChoice ==="rock") ||
          (humanChoice === "scissors" && computerChoice ==="paper")   ){
+            humanScore ++;
             return `You have won you chose ${humanChoice} which beats the computer choice of ${computerChoice}`;
 
 }
 else{
+    computerScore ++;
     return `You have lost computer chose ${computerChoice} which beats your choice of ${humanChoice}`;
 
 }
 }
 
+function playGame(){
+    let round = 1;
+    for(let i=round;i<=5; i++){
+        humanChoice=getHumanChoice();
+        computerChoice=getComputerChoice();
+        console.log(playRound(humanChoice,computerChoice))
+    }
+    if(humanScore>computerScore){
+        return `Rounds are over you won! you scored ${humanScore} while the computer scored ${computerScore}`;
+    }
+    return `Rounds are over you lost! you scored ${humanScore} while the computer scored ${computerScore}`;
+}
 
 
-console.log(playRound("paper", "paper"))
+console.log(playGame());
+
