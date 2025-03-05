@@ -25,7 +25,7 @@ function getHumanChoice(){
 
 function playRound(humanChoice,computerChoice){
 if (humanChoice === computerChoice){
-    return `Tie ${humanChoice} and ${computerChoice} are the same!`;
+    return `its a tie you chose ${humanChoice} and the computer chose ${computerChoice} are the same!`;
 }
 else if ((humanChoice === "rock" && computerChoice ==="scissors") ||
          (humanChoice === "paper" && computerChoice ==="rock") ||
@@ -50,6 +50,9 @@ function playGame(){
     }
     if(humanScore>computerScore){
         return `Rounds are over you won! you scored ${humanScore} while the computer scored ${computerScore}`;
+    }
+    else if(humanScore === computerScore){
+        return `Rounds are over it's a tie! you scored ${humanScore} and the computer scored ${computerScore}`;
     }
     return `Rounds are over you lost! you scored ${humanScore} while the computer scored ${computerScore}`;
 }
