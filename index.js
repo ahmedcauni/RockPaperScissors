@@ -1,3 +1,5 @@
+let humanScore = 0;
+let computerScore=0;
 
 
 function getComputerChoice(){
@@ -20,6 +22,7 @@ function getHumanChoice(){
     let value = prompt("What is your choice?");
     return value;
 }
+
 
 for(i=0;i<1;i++){
     console.log(getHumanChoice())
