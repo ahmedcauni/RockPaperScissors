@@ -1,7 +1,8 @@
 let humanScore = 0;
 let computerScore=0;
+let round =1;
 
-
+/*
 function getComputerChoice(){
  let value = Math.random();
  
@@ -42,7 +43,7 @@ else{
 }
 
 function playGame(){
-    let round = 1;
+    
     for(let i=round;i<=5; i++){
         humanChoice=getHumanChoice();
         computerChoice=getComputerChoice();
@@ -60,3 +61,38 @@ function playGame(){
 
 console.log(playGame());
 
+*/
+
+document.getElementById("playround").addEventListener("click",function(){
+    const playtext=document.createElement("div");
+    playtext.classList.add("playtext");
+    playtext.innerText=`Round have started this is round ${round}`;
+
+    const scoretext=document.createElement("div");
+    playtext.classList.add("scoretext");
+    playtext.innerText=`Round have started this is round ${round}`;
+    
+    const buttoncollection = document.createElement("div");
+    buttoncollection.classList.add("buttoncollection");
+
+
+    const rockButton = document.createElement("button");
+    rockButton.id="rockbutton";
+    rockButton.innerText="Rock";
+
+    const paperButton = document.createElement("button");
+    paperButton.id="paperbutton";
+    paperButton.innerText="Paper";
+
+    const scissorsButton = document.createElement("button");
+    scissorsButton.id="scissorsbutton";
+    scissorsButton.innerText="Scissors";
+    
+    buttoncollection.append(rockButton);
+    buttoncollection.append(paperButton);
+    buttoncollection.append(scissorsButton);
+
+    document.querySelector(".content").append(playtext)
+    document.querySelector(".content").append(buttoncollection)
+
+});
