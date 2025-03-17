@@ -2,7 +2,7 @@ let humanScore = 0;
 let computerScore=0;
 let round =1;
 
-/*
+
 function getComputerChoice(){
  let value = Math.random();
  
@@ -20,8 +20,16 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    let value = prompt("What is your choice?");
-    return value.toLowerCase();
+
+    return new Promise(resolve =>{
+    document.querySelector(".buttoncollection").addEventListener("click",function(e){
+        if (e.target.tagName=="BUTTON"){
+            resolve(value = e.target.innerText.toLowerCase());
+        }
+    },{once :true});
+    });
+    
+  
 }
 
 function playRound(humanChoice,computerChoice){
@@ -41,18 +49,24 @@ else{
 
 }
 }
-*/
-function playGame(){
-    
+
+async function playGame(){
+     const choice=document.createElement("div");
+     const scoretext=document.querySelector(".scoretext");
+     choice.classList.add("choice")
+     scoretext.insertAdjacentElement("afterend",choice);
     for(let i=round;i<=5; i++){
         const playtext=document.querySelector(".playtext");
         playtext.innerText=`This is round ${round}`;
 
-        //humanChoice=getHumanChoice();
-        //computerChoice=getComputerChoice();
-
+        let humanChoice= await getHumanChoice();
+        computerChoice=getComputerChoice();
+        
+        choice.innerText=`You chose ${humanChoice} and computer chose`;
         const scoretext=document.querySelector(".scoretext");
         scoretext.innerText=`Your score is ${humanScore} and computer score is ${computerScore} `;
+
+        playRound();
         round++;
     }
     const gametext=document.createElement("div");
