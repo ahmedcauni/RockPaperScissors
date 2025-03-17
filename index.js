@@ -69,8 +69,8 @@ document.getElementById("playround").addEventListener("click",function(){
     playtext.innerText=`Round have started this is round ${round}`;
 
     const scoretext=document.createElement("div");
-    playtext.classList.add("scoretext");
-    playtext.innerText=`Round have started this is round ${round}`;
+    scoretext.classList.add("scoretext");
+    scoretext.innerText=`Your score is ${humanScore} and computer score is ${computerScore}`;
     
     const buttoncollection = document.createElement("div");
     buttoncollection.classList.add("buttoncollection");
@@ -93,6 +93,7 @@ document.getElementById("playround").addEventListener("click",function(){
     buttoncollection.append(scissorsButton);
 
     document.querySelector(".content").append(playtext)
+    document.querySelector(".content").append(scoretext)
     document.querySelector(".content").append(buttoncollection)
 
 });

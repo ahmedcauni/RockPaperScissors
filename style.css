@@ -18,3 +18,7 @@ button{
 .buttoncollection{
     display: flex;
 }
+
+.scoretext{
+    margin: 20px;
+}
