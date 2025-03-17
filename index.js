@@ -55,7 +55,9 @@ function playGame(){
         scoretext.innerText=`Your score is ${humanScore} and computer score is ${computerScore} `;
         round++;
     }
-    const gametext= document.querySelector(".content");
+    const gametext=document.createElement("div");
+    gametext.classList.add("gametext")
+    document.querySelector(".content");
 
     if(humanScore>computerScore){
         gametext.innerText= `Rounds are over you won! you scored ${humanScore} while the computer scored ${computerScore}`;
@@ -64,9 +66,9 @@ function playGame(){
         gametext.innerText= `Rounds are over it's a tie! you scored ${humanScore} and the computer scored ${computerScore}`;
     }
     else{
-    gametext.innerText= `Rounds are over you lost! you scored ${humanScore} while the computer scored ${computerScore}`;
+        gametext.innerText= `Rounds are over you lost! you scored ${humanScore} while the computer scored ${computerScore}`;
     }
-    
+    document.querySelector(".content").append(gametext);
 }
 
 
