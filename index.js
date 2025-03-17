@@ -34,18 +34,18 @@ function getHumanChoice(){
 
 function playRound(humanChoice,computerChoice){
 if (humanChoice === computerChoice){
-    return `its a tie you chose ${humanChoice} and the computer chose ${computerChoice} are the same!`;
+    return ;
 }
 else if ((humanChoice === "rock" && computerChoice ==="scissors") ||
          (humanChoice === "paper" && computerChoice ==="rock") ||
          (humanChoice === "scissors" && computerChoice ==="paper")   ){
             humanScore ++;
-            return `You have won you chose ${humanChoice} which beats the computer choice of ${computerChoice}`;
+            return ;
 
 }
 else{
     computerScore ++;
-    return `You have lost computer chose ${computerChoice} which beats your choice of ${humanChoice}`;
+    return ;
 
 }
 }
@@ -60,13 +60,13 @@ async function playGame(){
         playtext.innerText=`This is round ${round}`;
 
         let humanChoice= await getHumanChoice();
-        computerChoice=getComputerChoice();
-        
-        choice.innerText=`You chose ${humanChoice} and computer chose`;
+        let computerChoice=getComputerChoice();
+        playRound(humanChoice,computerChoice);
+        choice.innerText=`You chose ${humanChoice} and computer chose ${computerChoice}`;
         const scoretext=document.querySelector(".scoretext");
         scoretext.innerText=`Your score is ${humanScore} and computer score is ${computerScore} `;
 
-        playRound();
+        
         round++;
     }
     const gametext=document.createElement("div");
