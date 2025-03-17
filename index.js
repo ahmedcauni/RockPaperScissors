@@ -41,27 +41,34 @@ else{
 
 }
 }
-
+*/
 function playGame(){
     
     for(let i=round;i<=5; i++){
-        humanChoice=getHumanChoice();
-        computerChoice=getComputerChoice();
-        console.log(playRound(humanChoice,computerChoice))
+        const playtext=document.querySelector(".playtext");
+        playtext.innerText=`This is round ${round}`;
+
+        //humanChoice=getHumanChoice();
+        //computerChoice=getComputerChoice();
+
+        const scoretext=document.querySelector(".scoretext");
+        scoretext.innerText=`Your score is ${humanScore} and computer score is ${computerScore} `;
+        round++;
     }
+    const gametext= document.querySelector(".content");
+
     if(humanScore>computerScore){
-        return `Rounds are over you won! you scored ${humanScore} while the computer scored ${computerScore}`;
+        gametext.innerText= `Rounds are over you won! you scored ${humanScore} while the computer scored ${computerScore}`;
     }
     else if(humanScore === computerScore){
-        return `Rounds are over it's a tie! you scored ${humanScore} and the computer scored ${computerScore}`;
+        gametext.innerText= `Rounds are over it's a tie! you scored ${humanScore} and the computer scored ${computerScore}`;
     }
-    return `Rounds are over you lost! you scored ${humanScore} while the computer scored ${computerScore}`;
+    else{
+    gametext.innerText= `Rounds are over you lost! you scored ${humanScore} while the computer scored ${computerScore}`;
+    }
+    
 }
 
-
-console.log(playGame());
-
-*/
 
 document.getElementById("playround").addEventListener("click",function(){
     const playtext=document.createElement("div");
@@ -96,4 +103,5 @@ document.getElementById("playround").addEventListener("click",function(){
     document.querySelector(".content").append(scoretext)
     document.querySelector(".content").append(buttoncollection)
 
+    playGame();
 });
